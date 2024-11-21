@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import DrugSearch from './components/DrugSearch';
+import DrugDetails from './components/DrugDetails';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Router>
+    <div className="app-container">
+      <header>
+        <h1>Xogene Logo</h1>
       </header>
+      <Routes>
+        <Route path="/drugs/search" element={<DrugSearch/>}/>
+        <Route path="/drugs/:drug_name" element={<DrugDetails/>}/>
+        
+      </Routes>
     </div>
+    </Router>
   );
 }
 
